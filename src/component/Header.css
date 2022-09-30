@@ -9,7 +9,7 @@
     border-bottom: 0.1px solid lightgray;
     z-index: 999;
     width: 100%;
-
+    background-color: white;
 }
 
 .header__left{
