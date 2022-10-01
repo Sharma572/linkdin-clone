@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css';
+
 import HeaderOptions from './HeaderOptions'
 import SearchIcon from '@mui/icons-material/Search';
 import GroupIcon from '@mui/icons-material/Group';
@@ -7,8 +8,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import { useDispatch } from 'react-redux';
+import { logout } from '../features/userSlice';
+import { auth } from './firebase';
 
 const Header = () => {
+
+  const dispatch = useDispatch();
+
+  const userLoggeOut =()=>{
+    dispatch(logout())
+    auth.signOut();
+    alert('logged out')
+  }
+
   return (
     <div className='header'>
     <div className="header__left">
@@ -17,7 +30,7 @@ const Header = () => {
     <div className="header__search">
       {/* Search-Icon */}
       <SearchIcon />
-      <input type="text"   />
+      <input type="text" placeholder='Search'  />
     </div>
     </div>
 
@@ -28,7 +41,7 @@ const Header = () => {
        <HeaderOptions Icon={BusinessCenterIcon} title="My Network" />
        <HeaderOptions Icon={MessageIcon} title="My Network" />
        <HeaderOptions Icon={NotificationsActiveIcon} title="My Network" />
-       <HeaderOptions avatar='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4wkTPwUomJS3UgxWkRpVOTNCVfQ46PEdhCQ&usqp=CAU' title="Me" />
+       <HeaderOptions avatar='https://media-exp1.licdn.com/dms/image/C4D03AQGt-r8qSKyb1w/profile-displayphoto-shrink_200_200/0/1648708574472?e=1668038400&v=beta&t=7Ju9Hb3zsR2exJTzLGmMYwUesCkldQub-9F-YCoZK9s' title="Me" onClick={userLoggeOut} />
     </div>
     </div>
   )
