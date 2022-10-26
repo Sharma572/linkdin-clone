@@ -9,7 +9,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { useDispatch} from 'react-redux';
-import userSlice, { logout } from '../features/userSlice';
+import { logout } from '../features/userSlice';
 import { auth } from './firebase';
 
 const Header = () => {

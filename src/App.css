@@ -6,5 +6,11 @@
 .app__body{
     display: flex;
     margin: 35px 20px 0;
-    max-width: 1200px;
+}
+
+@media screen and (max-width: 780px) {
+    .app__body {
+        flex-direction: column;
+    }
+        
 }
